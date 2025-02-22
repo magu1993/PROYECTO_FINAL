@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<!--
+Created using JS Bin
+http://jsbin.com
+
+Copyright (c) 2025 by anonymous (http://jsbin.com/pokiluxoqe/1/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+</head>
+<body>
+
+<script id="jsbin-javascript">
+var precio_base = 2000
+
+var edad_18 = 0.1; // 10%
+var edad_25 = 0.2; // 20%
+var edad_50 = 0.3; // 30%
+
+var casado_18 = 0.1; // 10%
+var casado_25 = 0.2; // 20%
+var casado_50 = 0.3; // 30%
+
+var hijos_recargo = 0.2; // 20%
+
+var recargo = 0
+var recargo_total = 0
+var recargo_totalhijos = 0
+
+var precio_final = 0
+
+var nombre = prompt("Ingrese su nombre, por favor")
+var edad = prompt("¿Cuantos años tiene? Ingrese solamente números ")
+
+var casado = prompt("¿Esta casado actualmente", "si/no")
+var edad_conyugue
+if("SI" == casado.toUpperCase()){
+  edad_conyugue = prompt ("¿Que edad tiene su esposa/a")
+}
+var edad_numero = parseInt(edad)
+var edad_conyugue_numero = 0
+if("SI" == casado.toUpperCase()){
+  edad_conyugue_numero = parseInt(edad_conyugue)
+}
+var hijos = prompt("¿Tiene hijos o hijas", "si/no")
+var hijos_cantidad
+if("SI" == hijos.toUpperCase()){
+  hijos_cantidad= prompt ("¿Cuantos hijos tiene?")
+}
+var hijos_cantidad_numero = parseInt(hijos)
+var hijos_cantidad_numero = 0
+if("SI" == hijos.toUpperCase()){
+  hijos_cantidad_numero = parseInt(hijos_cantidad)
+}
+
+if(edad_numero>=18 && edad_numero<=24){
+  recargo = precio_base * edad_18
+  recargo_total = recargo_total + recargo
+}else if(edad_numero>=25 && edad_numero<=49){
+  recargo = precio_base * edad_25
+  recargo_total = recargo_total + recargo
+}else if(edad_numero>=50){
+  recargo = precio_base * edad_50
+}
+if(edad_conyugue>=18 && edad_conyugue<=24){
+  recargo = precio_base * edad_18
+  recargo_total = recargo_total + recargo
+}else if(edad_conyugue>=25 && edad_conyugue<=49){
+  recargo = precio_base * edad_25
+  recargo_total = recargo_total + recargo
+}else if(edad_conyugue>=50){
+  recargo = precio_base * edad_50
+  recargo_total = recargo_total + recargo
+}
+if(hijos_cantidad>=1){
+  recargo_totalhijos = precio_base * hijos_cantidad
+  recargo = recargo_totalhijos * hijos_recargo
+  recargo_total = recargo_total + recargo
+}
+
+
+precio_final = precio_base + recargo_total
+
+alert ("Para el asegurado "+nombre)
+alert ("El recargo total sera de: "+recargo_total)
+alert ("El precio sera de: "+precio_final)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>
